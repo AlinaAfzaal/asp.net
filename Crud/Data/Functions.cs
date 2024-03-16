@@ -6,14 +6,13 @@ namespace Crud.Data
 {
     public static class Functions
     {
-        static readonly AppDbContext _context;
 
 
-        public static List<SelectListItem> getCategories()
+        public static List<SelectListItem> getCategories(AppDbContext context)
         {
             List<SelectListItem> CategoryList = new List<SelectListItem>();
 
-            List<Category> data = _context.Categories.ToList();
+            List<Category> data = context.Categories.ToList();
             foreach (var item in data)
             {
                 CategoryList.Add(new SelectListItem

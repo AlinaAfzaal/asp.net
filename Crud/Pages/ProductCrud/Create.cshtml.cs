@@ -25,7 +25,7 @@ namespace Crud.Pages.ProductCrud
 
         public IActionResult OnGet()
         {
-            CategoryList = Functions.getCategories();
+            CategoryList = Functions.getCategories(_context);
             return Page();
 
         }

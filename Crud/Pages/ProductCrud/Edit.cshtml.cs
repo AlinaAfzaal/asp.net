@@ -14,6 +14,7 @@ namespace Crud.Pages.ProductCrud
     public class EditModel : PageModel
     {
         private readonly AppDbContext _context;
+        public List<SelectListItem> CategoryList = new List<SelectListItem>();
 
         public EditModel(AppDbContext context)
         {
@@ -25,6 +26,7 @@ namespace Crud.Pages.ProductCrud
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            CategoryList = Functions.getCategories(_context);
             if (id == null || _context.Products == null)
             {
                 return NotFound();
